@@ -1,6 +1,4 @@
-class User < ApplicationRecord
-     
-   
+class Instructor < ApplicationRecord
     has_many :schedules
     has_many :courses, through: :schedules 
     
@@ -9,5 +7,4 @@ class User < ApplicationRecord
     validates :name, presence: true
     validates :email, presence: true
     validates :email, uniqueness: true 
-
 end
