@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'about', to: 'pages#about'
   resources :instructors
   resources :schedules 
+  resources :courses 
   resources :instructors do
     resources :courses  
   end 
