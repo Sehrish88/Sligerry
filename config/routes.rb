@@ -6,6 +6,6 @@ Rails.application.routes.draw do
   resources :schedules 
   resources :courses 
   resources :instructors do
-    resources :courses  
+    resources :courses    
   end 
 end
