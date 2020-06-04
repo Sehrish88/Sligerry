@@ -1,0 +1,13 @@
+<%=f.label 'Course Title'%>
+  <%=f.text_field :title %>
+  <%=f.label 'Description'%>
+  <%=f.text_area :description %><br>
+  <%=f.fields_for :schedule do |sch| %>
+    <%=sch.label "Days" %><br>
+    <%=sch.text_field :days %><br>
+    <%=sch.label "Time" %><br>
+    <%=sch.text_field :time %><br>
+    <%=sch.label "Semester" %><br>
+    <%=sch.text_field :semester %><br>
+
+  <%end%>
