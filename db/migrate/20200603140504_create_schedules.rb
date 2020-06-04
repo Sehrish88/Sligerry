@@ -1,6 +1,10 @@
 class CreateSchedules < ActiveRecord::Migration[6.0]
   def change
     create_table :schedules do |t|
+      t.string :days
+      t.string :time
+      t.string :semester
+       
 
       t.timestamps
     end

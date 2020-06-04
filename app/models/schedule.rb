@@ -1,4 +1,4 @@
 class Schedule < ApplicationRecord
-    belongs_to :instructor 
-    belongs_to :course 
+    has_many :courses
+    has_many :instructors, through: :courses
 end

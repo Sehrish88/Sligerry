@@ -1,4 +1,6 @@
 class Course < ApplicationRecord
-    has_many :schedules
-    has_many :instructors, through: :schedules
+    belongs_to :instructor
+    belongs_to :schedule 
+
+    accepts_nested_attributes_for :schedules #? 
 end
