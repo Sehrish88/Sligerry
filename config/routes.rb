@@ -8,4 +8,7 @@ Rails.application.routes.draw do
   resources :instructors do
     resources :courses    
   end 
+
+  post '/logout', to: 'sessions#destroy'
+
 end
