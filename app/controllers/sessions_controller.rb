@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
 
     def create
-        @instructor = instructor.find_by(email: params[:instructor][:email])
+        @instructor = Igit add nstructor.find_by(email: params[:instructor][:email])
         if @instructor && @instructor.authenticate(params[:instructor][:password])
             session[:instructor_id] = @instructor.id
             redirect_to instructor_path(@instructor)
