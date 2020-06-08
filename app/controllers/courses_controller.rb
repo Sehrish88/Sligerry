@@ -40,10 +40,17 @@ class CoursesController < ApplicationController
      end 
 
      def edit 
-
+       @course = Course.find_by(id: params[:id])
      end 
 
      def update 
+       @course = Course.find_by(id: params[:id])
+       @course.update(course_params)
+       if @course.valid?
+         redirect_to course_path(@course)
+       else 
+         render :edit 
+       end 
 
      end 
      
