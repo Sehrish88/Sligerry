@@ -1,3 +1,4 @@
+<%=hidden_field_tag "course[instructor_ids][]", @instructor.id if @instructor %>
 <%=f.label 'Course Title'%>
   <%=f.text_field :title %>
   <%=f.label 'Description'%>
