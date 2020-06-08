@@ -1,2 +1,8 @@
-<h1><%= @course.name %></h1>
-<h2><%= @course.description %></h2> 
+<h1><%= @course.title %></h1>
+<h3>Course Description: <%= @course.description %></h3>
+<h3>Days: <%= @course.schedule.days %></h3>
+<h3>Time: <%= @course.schedule.time %></h3>
+<h3>Semester: <%= @course.schedule.semester %></h3>
+<%= link_to "Dashboard", instructor_path(current_instructor) %>
+
+<%= link_to "Edit Course", edit_instructor_course_path(@course) %>
