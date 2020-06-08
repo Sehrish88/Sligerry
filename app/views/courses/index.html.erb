@@ -1,4 +1,7 @@
 <h1> All Courses </h1> 
+<% @courses.each do |c| %>
+    <ol><%= c.title %>, <%= c.description %></ol>
+    <% end %>
 
 
 <p><%= link_to "Home", root_path %></p>
