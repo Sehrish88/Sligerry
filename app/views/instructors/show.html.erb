@@ -1,4 +1,11 @@
 <h1> Welcome to Your Dashboard <%= @instructor.name %></h1> 
 
+<h3> Your Courses </h3>
+<% @instructor.courses.each do |c| %>
+    <ul><%= c.title %>, <%= c.description %></ul>
+    <% end %>
 
-<p><%= link_to "Home", root_path %></p> <%= button_to "Log Out", logout_path %>
+
+<p><%= link_to "Home", root_path %></p><br>
+<p><%= link_to "Create A Course", new_instructor_course_path(@instructor) %></p><br>
+<%= button_to "Log Out", logout_path %>
