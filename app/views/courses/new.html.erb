@@ -3,6 +3,7 @@
 <% if @course.errors.any? %>
   <ul>
     <% @course.errors.full_messages.each do |message| %>
+     
       <li><%= message %></li>
     <%end%>
 </ul>
