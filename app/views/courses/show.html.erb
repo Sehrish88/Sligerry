@@ -6,3 +6,6 @@
 <%= link_to "Dashboard", instructor_path(current_instructor) %>
 
 <%= link_to "Edit Course", edit_instructor_course_path(@course) %>
+<% if @course.instructor == current_instructor %>
+<%= link_to "Delete Course", @course, method: :delete %>
+<% end %>
