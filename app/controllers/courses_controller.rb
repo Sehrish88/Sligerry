@@ -1,5 +1,5 @@
 class CoursesController < ApplicationController
-
+    
   
 
 
@@ -53,6 +53,16 @@ class CoursesController < ApplicationController
        end 
 
      end 
+
+     def destroy
+       @course = Course.find_by(id: params[:id])
+       if @course.instructor == current_instructor 
+       @course.delete
+       else 
+
+      end 
+       redirect_to instructor_path(current_instructor)
+    end 
      
 
      private
