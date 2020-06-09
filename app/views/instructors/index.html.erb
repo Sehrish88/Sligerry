@@ -1,2 +1,10 @@
-<%= @instructors.each do |i| %>
+<h1> Sligerry Instructors </h1>
+
+<% @instructors.each do |i| %>
   <ul>  <%= i.name %> , <%= i.email %> </ul> 
+  <% end %>
+
+  <p><% if  current_instructor %>
+       <% @instructor = current_instructor %>
+       <%= link_to "Dashboard", instructor_path(@instructor) %>
+       <% end %>
