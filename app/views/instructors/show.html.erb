@@ -1,13 +1,20 @@
 <h1> Welcome to Your Dashboard <%= @instructor.name %></h1> 
+<h4><%= @instructor.discipline %> Instructor</h4> 
+<h4>Email: <%= @instructor.email%></h4>
 
-<h3> Your Courses </h3>
+<h3> <%= @instructor.name %>'s Courses </h3>
 <% @instructor.courses.each do |c| %>
    <ul><%= link_to  c.title, course_path(c) %>, <%= c.description %></ul>
     <% end %>
 
 
 <p><%= link_to "Home", root_path %></p><br>
+<p><% if  current_instructor %>
+       <% @instructor = current_instructor %>
 <p><%= link_to "Create A Course", new_instructor_course_path(@instructor) %></p><br>
+<p><%= link_to "Edit Your Information", edit_instructor_path(@instructor) %></p><br> 
+<% end %>
 <p><%= link_to "Browse Courses", courses_path %></p>
 <p><%= link_to "List Of Instructors", instructors_path %></p>
+
 <%= button_to "Log Out", logout_path %>
