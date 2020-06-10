@@ -1,7 +1,7 @@
 <h1> Sligerry Instructors </h1>
 
 <% @instructors.each do |i| %>
-  <ul>  <%= i.name %> , <%= i.email %> </ul> 
+  <ul>  <%= link_to i.name, instructor_path(i) %> , <%= i.email %> </ul> 
   <% end %>
 
   <p><% if  current_instructor %>
