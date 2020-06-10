@@ -1,7 +1,8 @@
 <h1> All Courses </h1> 
 <% @courses.each do |c| %>
-    <ol><%= c.title %>, <%= c.description %></ol>
+    <ol><ul><%= link_to  c.title, course_path(c) %>, <%= c.description %></ol>
     <% end %>
 
 
 <p><%= link_to "Home", root_path %></p>
+<%= link_to "Dashboard", instructor_path(current_instructor) %>
