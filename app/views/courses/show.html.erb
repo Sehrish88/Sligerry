@@ -2,8 +2,10 @@
 <h3>Course Description: <%= @course.description %></h3>
 <h3>Days: <%= @course.schedule.days %></h3>
 <h3>Time: <%= @course.schedule.time %></h3>
+<h3>Instructor: <%= @course.instructor.name %></h3>
 <h3>Semester: <%= @course.schedule.semester %></h3>
 <%= link_to "Dashboard", instructor_path(current_instructor) %>
+<p><%= link_to "Browse Courses", courses_path %></p>
 
 
 <% if @course.instructor == current_instructor %>
