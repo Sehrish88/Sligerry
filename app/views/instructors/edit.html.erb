@@ -1,1 +1,14 @@
 <h1>Edit Information</h1>
+
+<% if @instructor.errors.any? %>
+  <ul>
+    <% @instructor.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <%end%>
+  </ul>
+<%end%>
+
+<%= form_for(@instructor) do |f| %>
+    <%= render partial: "form", locals: {f: f }%>
+    <%=f.submit "Update Instructor"%>
+<%end%>
