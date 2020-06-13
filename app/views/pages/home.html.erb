@@ -13,6 +13,7 @@
         <%= link_to "Dashboard", instructor_path(@instructor) %>
         <p><%= link_to "Browse Courses", courses_path %></p>
         <p><%= link_to "List Of Instructors", instructors_path %></p>
+        <p><%= button_to "log Out", logout_path %>
         <% else %>
         <p><%= link_to "Register", new_instructor_path %></p>
         <p><%= link_to "Log in", login_path  %></p> 
