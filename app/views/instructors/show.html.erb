@@ -4,7 +4,7 @@
 
 <h3> <%= @instructor.name %>'s Courses </h3>
 <% @instructor.courses.each do |c| %>
-   <ul><%= link_to  c.title, course_path(c) %>, <%= c.description %></ul>
+   <ul><%= link_to  c.title, instructor_course_path(c.instructor, c) %>, <%= c.description %></ul>
     <% end %>
 
 
@@ -14,6 +14,7 @@
 <p><%= link_to "Create A Course", new_instructor_course_path(@instructor) %></p><br>
 <p><%= link_to "Edit Your Information", edit_instructor_path(@instructor) %></p><br> 
 <% end %>
+
 <p><%= link_to "Browse Courses", courses_path %></p>
 <p><%= link_to "List Of Instructors", instructors_path %></p>
 
