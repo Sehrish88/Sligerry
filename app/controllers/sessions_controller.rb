@@ -5,8 +5,10 @@ class SessionsController < ApplicationController
         #byebug
         if @instructor && @instructor.authenticate(params[:instructor][:password])
             session[:instructor_id] = @instructor.id
+            flash[:notice] = "Sucessfully logged in"
             redirect_to instructor_path(@instructor)
         else
+            flash[:alert] = "Invalid Email or Password"
             render :new
         end
       end 
