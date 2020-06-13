@@ -8,6 +8,9 @@
   </ul>
 <%end%>
 
+
+
+
 <%= form_for(@instructor) do |f| %>
     <%= render partial: "form", locals: {f: f }%>
     <%=f.submit "Update Instructor"%>
