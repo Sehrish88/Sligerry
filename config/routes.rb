@@ -7,8 +7,7 @@ Rails.application.routes.draw do
   post '/logout', to: 'sessions#destroy'
   get  '/auth/facebook/callback', to: 'sessions#facebook_login' 
 
-  resources :instructors
-  resources :schedules 
+  resources :instructors 
   resources :courses 
   resources :instructors do
     resources :courses    
