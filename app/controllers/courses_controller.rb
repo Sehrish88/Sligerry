@@ -4,18 +4,21 @@ class CoursesController < ApplicationController
 
 
      def index 
-      if !params[:instructor_id]
+      
+        if params[:search] 
+          @courses = Course.course_type(params[:search])
+        else 
          @courses = Course.all 
-      else 
-         #check if instructor exists 
-         instructor = Instructor.find_by(id: params[:id]) 
-         @courses = instructor.courses
-      end 
+        end 
+
+
     end 
+
+     
 
      def show 
          @instructor = Instructor.find_by(id: params[:instructor_id]) 
-         @course = Course.find_by(id: params[:id]) 
+         find_course 
       
      end 
 
@@ -33,6 +36,7 @@ class CoursesController < ApplicationController
         @course = Course.create(course_params)
         @course.instructor = current_instructor 
         if @course.save
+          flash[:notice] = "Sucessfully Created Course"
             redirect_to instructor_course_path(@course.instructor, @course) 
         else 
             render :new
@@ -40,14 +44,15 @@ class CoursesController < ApplicationController
      end 
 
      def edit 
-       @course = Course.find_by(id: params[:id])
+       find_course 
      end 
 
      def update 
-       @course = Course.find_by(id: params[:id])
+      find_course
        @course.update(course_params)
        if @course.valid?
-         redirect_to course_path(@course)
+        flash[:notice] = "Sucessfully Updated Course"
+         redirect_to instructor_course_path(@course.instructor, @course) 
        else 
          render :edit 
        end 
@@ -55,12 +60,13 @@ class CoursesController < ApplicationController
      end 
 
      def destroy
-       @course = Course.find_by(id: params[:id])
+      find_course
        if @course.instructor == current_instructor 
        @course.delete
        else 
-
+        redirect_to login_path 
       end 
+      flash[:notice] = "Sucessfully deleted Course"
        redirect_to instructor_path(current_instructor)
     end 
      
