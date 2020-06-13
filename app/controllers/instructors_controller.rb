@@ -10,14 +10,16 @@ class InstructorsController < ApplicationController
         @instructor = Instructor.new(instructor_params)
         if @instructor.save
           session[:instructor_id] = @instructor.id
+          flash[:notice] = "Registration Sucessful"
           redirect_to instructor_path(@instructor)
         else
+          flash[:alert] = "Registration Unsuccesful"
           render :new
         end
     end
 
     def show
-        @instructor = Instructor.find(params[:id]) 
+      find_instructor 
     end 
 
     def index
@@ -25,15 +27,17 @@ class InstructorsController < ApplicationController
     end 
 
     def edit 
-      @instructor = Instructor.find(params[:id]) 
+      find_instructor
     end 
     
     def update 
-      @instructor = Instructor.find_by(id: params[:id])
+      find_instructor
       @instructor.update(instructor_params)
       if @instructor.valid?
+        flash[:notice] = "Sucessfully Updated Instructor Information"
         redirect_to instructor_path(@instructor)
       else
+      
         render :edit 
       end 
     end 
