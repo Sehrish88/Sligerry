@@ -1,8 +1,16 @@
 <h1> All Courses </h1> 
+<%= form_tag courses_path, :method => :get do  %>
+    <%= label_tag "Search for Course Types" %>
+    <%= text_field_tag :search %>
+    <%= submit_tag "Search" %>
+    <% end %> 
+
+
 <% @courses.each do |c| %>
-    <ol><ul><%= link_to  c.title, course_path(c) %>, <%= c.description %></ol>
+    <ol><%= link_to  c.title, course_path(c) %>, <%= c.description %></ol> 
     <% end %>
 
 
 <p><%= link_to "Home", root_path %></p>
+<p><%= link_to "Browse Courses", courses_path %></p>
 <%= link_to "Dashboard", instructor_path(current_instructor) %>
