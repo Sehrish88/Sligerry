@@ -26,8 +26,10 @@ gem 'jbuilder', '~> 2.7'
  gem 'omniauth'
  gem 'omniauth-facebook'
  gem 'dotenv-rails'
+ gem 'materialize-sass'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
+gem 'bootstrap', '~> 4.5'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
