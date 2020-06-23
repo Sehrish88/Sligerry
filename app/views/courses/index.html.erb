@@ -1,3 +1,4 @@
+
 <h1> All Courses </h1> 
 <%= form_tag courses_path, :method => :get do  %>
     <%= label_tag "Search for Course Types" %>
@@ -7,7 +8,7 @@
 
 
 <% @courses.each do |c| %>
-    <ol><%= link_to  c.title, course_path(c) %>, <%= c.description %></ol> 
+    <ol><%= link_to  c.title, instructor_course_path(c.instructor, c) %>, <%= c.description %></ol> 
     <% end %>
 
 
